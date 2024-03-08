@@ -46,12 +46,14 @@ $invitation = config('data.invitation');
                 <input type="text" name="girl_name" placeholder = "Tên cô dâu" class="text-sm rounded-md border px-2 py-1 mt-4 text-input-update" data-key="girl_name" data-type = "girl" value = "{{@$girlInfos['girl_name']->value}}">
                 <input type="text" name="girl_dad" placeholder = "Bố cô dâu" class="text-sm rounded-md border px-2 py-1 mt-4 text-input-update" data-key="girl_dad" data-type = "girl" value = "{{@$girlInfos['girl_dad']->value}}">
                 <input type="text" name="girl_mom" placeholder = "Mẹ cô dâu" class="text-sm rounded-md border px-2 py-1 mt-4 text-input-update" data-key="girl_mom" data-type = "girl" value = "{{@$girlInfos['girl_mom']->value}}">
+                <textarea name="girl_info_adr" class="border max-w-[300px] w-full px-2 py-1 h-[100px] resize-none overflow-y-auto text-input-update mt-4" data-key="girl_info_adr" data-type = "girl" placeholder="Thông tin nhà gái">{{@$girlInfos['girl_info_adr']->value}}</textarea>
             </div>
             <div class="w-1/2 flex flex-col items-center">
                 <h3 class="italic">Nhà trai</h3>
                 <input type="text" name="boy_name" placeholder = "Tên chú rể" class="text-sm rounded-md border px-2 py-1 mt-4 text-input-update" data-key="boy_name" data-type = "boy" value = "{{@$boyInfos['boy_name']->value}}">
                 <input type="text" name="boy_dad" placeholder = "Bố chú rể" class="text-sm rounded-md border px-2 py-1 mt-4 text-input-update" data-key="boy_dad" data-type = "boy" value = "{{@$boyInfos['boy_dad']->value}}">
                 <input type="text" name="boy_mom" placeholder = "Mẹ chú rể" class="text-sm rounded-md border px-2 py-1 mt-4 text-input-update" data-key="boy_mom" data-type = "boy" value = "{{@$boyInfos['boy_mom']->value}}">
+                <textarea name="boy_info_adr" class="border max-w-[300px] w-full px-2 py-1 h-[100px] resize-none overflow-y-auto text-input-update mt-4" data-key="boy_info_adr" data-type = "boy" placeholder="Thông tin nhà gái">{{@$boyInfos['boy_info_adr']->value}}</textarea>
             </div>
         </div>
         <div class="w-full p-10">
