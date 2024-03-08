@@ -170,8 +170,8 @@ $invitation = config('data.invitation');
         const copyLink = document.querySelector('#copyLink');
         let link = `${cardLinkInput}?zxcqaz=${sexRadios}&edcxsw=${invitationSelect}`;
         if (guestNameInput && guestNameInput !== '') {
-            guestNameInput = encodeURIComponent(guestNameInput);
-            link += `&ten=${guestNameInput}`;
+            newName = encodeURIComponent(guestNameInput);
+            link += `&ten=${newName}`;
         }
         copyLink.innerHTML = link;
         copyBtn.innerHTML = 'copy';
