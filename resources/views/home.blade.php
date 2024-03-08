@@ -34,6 +34,7 @@ $invitation = config('data.invitation');
                     <input type="text" name="host" class="border px-2 py-1 invitationAction customGuest" placeholder = "mình">
                     <input type="text" name="guest" class="border px-2 py-1 invitationAction customGuest" placeholder = "bạn">
                     <input type="text" name="host2" class="border px-2 py-1 invitationAction customGuest" placeholder = "chúng mình">
+                    <input type="text" name="guestName" class="border px-2 py-1 invitationAction" placeholder = "tên khách">
                     <div class="mx-4"><b id = "copyLink">{{$cardLink . '?zxcqaz=lrm&edcxsw=both1'}}</b></div>
                     <button class="px-2 py-1 text-white rounded-md" id="copyBtn" style = "background: green;">copy</button>
                 </div>
