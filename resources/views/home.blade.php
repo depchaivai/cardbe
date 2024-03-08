@@ -26,11 +26,14 @@ $invitation = config('data.invitation');
                         Nhà trai
                     </label>
                     <select name="invitation" class="mx-10 border px-2 py-1 invitationAction">
+                        <option value="custom">Tuỳ chỉnh</option>
                         @foreach($invitation as $key => $value)
                             <option value="{{ $key }}">{{ $value['host'] }} - {{ $value['guest'] }}</option>
                         @endforeach
                     </select>
-                    <input type="text" name="guestName" class="border px-2 py-1 invitationAction" placeholder = "tên">
+                    <input type="text" name="host" class="border px-2 py-1 invitationAction customGuest" placeholder = "mình">
+                    <input type="text" name="guest" class="border px-2 py-1 invitationAction customGuest" placeholder = "bạn">
+                    <input type="text" name="host2" class="border px-2 py-1 invitationAction customGuest" placeholder = "chúng mình">
                     <div class="mx-4"><b id = "copyLink">{{$cardLink . '?zxcqaz=lrm&edcxsw=both1'}}</b></div>
                     <button class="px-2 py-1 text-white rounded-md" id="copyBtn" style = "background: green;">copy</button>
                 </div>
@@ -151,7 +154,21 @@ $invitation = config('data.invitation');
             });
         });
     }
-
+    const invitationSelect1 = document.querySelector('select[name="invitation"]');
+    if (invitationSelect1) {
+        invitationSelect1.addEventListener('change', function() {
+            const customGuests = document.querySelectorAll('.customGuest');
+            if (invitationSelect1.value === 'custom') {
+                customGuests.forEach(customGuest => {
+                    customGuest.style.display = 'block';
+                });
+            } else {
+                customGuests.forEach(customGuest => {
+                    customGuest.style.display = 'none';
+                });
+            }
+        });
+    }
     const inviteElements = document.querySelectorAll('.invitationAction');
     if(inviteElements) {
         inviteElements.forEach(inviteElement => {
@@ -166,9 +183,20 @@ $invitation = config('data.invitation');
         const cardLinkInput = document.querySelector('input[name="card_link"]').value || '';
         const guestNameInput = document.querySelector('input[name="guestName"]').value || '';
         const invitationSelect = document.querySelector('select[name="invitation"]').value || 'both1';
-
+        let customData = '';
+        if (invitationSelect === 'custom') {
+            const customGuest = document.querySelector('input[name="guest"]').value || '';
+            const customHost = document.querySelector('input[name="host"]').value || '';
+            const customHost2 = document.querySelector('input[name="host2"]').value || '';
+            if (customGuest && customHost && customHost2) {
+                customData = `&host=${customHost}&guest=${customGuest}&host2=${customHost2}`;
+            }
+        }
         const copyLink = document.querySelector('#copyLink');
         let link = `${cardLinkInput}?zxcqaz=${sexRadios}&edcxsw=${invitationSelect}`;
+        if (customData !== '') {
+            link += customData;
+        }
         if (guestNameInput && guestNameInput !== '') {
             newName = encodeURIComponent(guestNameInput);
             link += `&ten=${newName}`;
