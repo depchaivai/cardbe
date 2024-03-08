@@ -10,12 +10,12 @@ $invitation = config('data.invitation');
 @endphp
 <div class = "w-full h-ful">
     <div class="text-red-400 p-10"><a href="/dashboard/submitted" class="text-red-400">LỜI XÁC NHẬN</a></div>
-    
+
     <div class="w-full p-10">
             <div class="mb-10"><b>Gửi thiệp</b></div>
             <input type="text" name="card_link" class="text-sm rounded-md border px-2 py-1 mt-4 text-input-update invitationAction" data-key="card_link" data-type = "both" value = "{{$cardLink}}">
             <div class="flex w-full mt-4">
-                <div class="w-full flex items-center text-md">
+                <div class="w-full flex items-center flex-wrap text-md">
                     <label class="cursor-pointer">
                         <input type="radio" name="sexCard" value="lrm" class="invitationAction" checked>
                         Nhà gái
@@ -164,7 +164,7 @@ $invitation = config('data.invitation');
         const cardLinkInput = document.querySelector('input[name="card_link"]').value || '';
         const guestNameInput = document.querySelector('input[name="guestName"]').value || '';
         const invitationSelect = document.querySelector('select[name="invitation"]').value || 'both1';
-        
+
         const copyLink = document.querySelector('#copyLink');
         let link = `${cardLinkInput}?zxcqaz=${sexRadios}&edcxsw=${invitationSelect}`;
         if (guestNameInput && guestNameInput !== '') {
