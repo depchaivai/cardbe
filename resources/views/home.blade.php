@@ -181,7 +181,7 @@ $invitation = config('data.invitation');
     copyBtn.addEventListener('click', function() {
         const copyLink = document.querySelector('#copyLink');
         const el = document.createElement('textarea');
-        const link = copyLink.innerHTML;
+        const link = copyLink.innerHTML.replace(/&amp;/g, '&')
         el.value = link;
         document.body.appendChild(el);
         el.select();
