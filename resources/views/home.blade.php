@@ -190,8 +190,10 @@ $invitation = config('data.invitation');
             const customHost = document.querySelector('input[name="host"]').value || '';
             const customHost2 = document.querySelector('input[name="host2"]').value || '';
             if (customGuest && customHost && customHost2) {
+                customHost = encodeURIComponent(customHost);
+                customGuest = encodeURIComponent(customGuest);
+                customHost2 = encodeURIComponent(customHost2);
                 customData = `&host1=${customHost}&guest=${customGuest}&host2=${customHost2}`;
-                customData = encodeURIComponent(customData);
             }
         }
         const copyLink = document.querySelector('#copyLink');
